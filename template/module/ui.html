@@ -1,0 +1,16 @@
+<div>
+<ol>
+	<li>{{category}}</li>
+	<li>{{review}}</li>
+	<li>{{description}}</li>
+	<li>{{image_url}}</li>
+	<li>
+		<ul>
+		{% for i in comment %}
+			<li>{{i}}</li>
+			{% end %}
+			</ul>
+
+	</li>
+	</ol>
+	</div>
