@@ -16,13 +16,12 @@ db = MongoClient("localhost", 27017)['recker']
 class IndexHandler(RequestHandler):
     def get(self):
         all_categories = db.collection.find()
-        self.render('index.html')
-        #, all_categories=all_categories)
+        self.render('index.html', all_categories=all_categories)
 
 
 class ModuleHandler(UIModule):
     def render(self, category, review, description, image_url, comment):
-        return self.render_string("module/ui.html",
+        return self.render_string("module/div.html",
                                   category=category,
                                   review=review,
                                   description=description,
