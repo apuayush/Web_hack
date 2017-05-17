@@ -1,25 +1,29 @@
-from tornado.options import options, define, parse_command_line
-from tornado.web import RequestHandler, Application, removeslash, UIModule, asynchronous
-from tornado.gen import coroutine, Task, engine
-from tornado.ioloop import IOLoop
-from tornado.httpserver import HTTPServer
+import os.path
+
+import tornado.escape
+import tornado.httpserver
+import tornado.ioloop
+import tornado.options
+import tornado.web
 
 # other libraries
 import os
 from pymongo import MongoClient
 
-define('port', default=7777, help='run on the given port', type=int)
+from tornado.options import define, options
+
+define("port", default=8000, help="run on the given port", type=int)
 
 db = MongoClient("localhost", 27017)['recker']
 
 
-class IndexHandler(RequestHandler):
+class IndexHandler(tornado.web.RequestHandler):
     def get(self):
         all_categories = db.collection.find()
-        self.render('index.html', all_categories=all_categories)
+        self.render('index.html', all_categories=all_categories, page_title="HOME | Cosmos")
 
 
-class ModuleHandler(UIModule):
+class ModuleHandler(tornado.web.UIModule):
     def render(self, category, review, description, image_url, comment):
         return self.render_string("module/div.html",
                                   category=category,
@@ -33,14 +37,14 @@ class ModuleHandler(UIModule):
 settings = dict(debug=True,
                 db=db)
 
-app = Application(
+app = tornado.web.Application(
     handlers=[(r'/', IndexHandler)],
-    template_path=os.path.join(os.path.dirname(__file__), "template"),
+    template_path=os.path.join(os.path.dirname(__file__), "templates"),
     static_path=os.path.join(os.path.dirname(__file__), "static"),
     ui_modules={'ModuleHandler': ModuleHandler},
     **settings)
 
 if __name__ == "__main__":
-    parse_command_line()
-    HTTPServer(app).listen(options.port)
-    IOLoop.instance().start()
+    tornado.options.parse_command_line()
+    tornado.httpserver.HTTPServer(app).listen(options.port)
+    tornado.ioloop.IOLoop.current().start()

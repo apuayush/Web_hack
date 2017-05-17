@@ -1,0 +1,208 @@
+{% autoescape None %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>Review Site</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/static/cssindex.css" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+body {font-size:16px;}
+.half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+.half img:hover{opacity:1}
+</style>
+<body>
+<nav class="sidebar red collapse top large padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+<!--a href="javascript:void(0)" onclick="close()" class="button hide-large display-topleft" style="width:100%;font-size:22px;position:relative;top:0px;left:20px;">Close Menu</a>-->
+<button onclick="close()" class="button hide-large display-topleft" style="width:100%;font-size:22px;position:relative;top:0px;left:20px;">Close Menu</button> 
+ <div class="container">
+  <h3 class="padding-64">
+  <h1><div class="area">COSMOS</div></h1>
+  </h1>
+  </h3>
+  <div class="bar-block">
+    <a href="#" onclick="close()" class="bar-item button hover-white">Home</a> 
+    <a href="#showcase" onclick="close()" class="bar-item button hover-white">Showcase</a> 
+    <a href="#affiliates" onclick="close()" class="bar-item button hover-white">Affiliates</a> 
+    <a href="#whatwedo" onclick="close()" class="bar-item button hover-white">What We Do</a> 
+    <a href="#aboutus" onclick="close()" class="bar-item button hover-white">About Us</a> 
+    <a href="#contact" onclick="close()" class="bar-item button hover-white">Contact</a>
+  </div>
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="container top hide-large red xlarge padding">
+  <!--a href="javascript:void(0)" class="button red margin-right" onclick="open()">=</a>-->
+  <button class="button red margin-right" onclick="open()">☰</button>
+<span>Cosmos</span>
+
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="overlay hide-large" onclick="close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="main" style="margin-left:340px;margin-right:40px">
+
+  <div class="container" style="margin-top:80px" id="showcase">
+    <h1 class="jumbo"><b>Review Site</b></h1>
+    <h1 class="xxxlarge text-red"><b>Showcase.</b></h1>
+    <hr style="width:50px;border:5px solid red;position:relative;left:-475px;" class="round">
+  </div>
+  
+  <!-- Photo grid (modal) -->
+  <div class="row-padding">
+  {% block body %}{% end %}
+  </div>
+
+ <!-- Modal for full size images on click-->
+  <div id="modal01" class="modal black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="button black xxlarge display-topright">×</span>
+    <div class="modal-content animate-zoom center transparent padding-64">
+      <img id="img01" class="image">
+      <p id="caption"></p>
+    </div>
+  </div>
+
+  
+  
+<!-- Services -->
+  <div class="container" id="affiliates" style="margin-top:75px">
+    <h1 class="xxxlarge text-red"><b>Affiliates.</b></h1>
+    <hr style="width:50px;border:5px solid red;position:relative;left:-475px;" class="round">
+<p style="text-align:justify;"> <em>Amazon</em> is an American electronic commerce and cloud computing company that was founded on July 5, 1994, 
+by Jeff Bezos and is based in Seattle, Washington. It is the largest Internet-based retailer in the world by 
+total sales and market capitalization.Amazon.com started as an online bookstore, later diversifying to 
+sell DVDs, Blu-rays, CDs, video downloads/streaming, MP3 downloads/streaming, audiobook downloads/streaming, 
+software, video games, electronics, apparel, furniture, food, toys, and jewelry. The company also produces 
+consumer electronics—notably, Kindle e-readers, Fire tablets, Fire TV, and Echo—and is the world's largest 
+provider of cloud infrastructure services (IaaS and PaaS).Amazon also sells certain low-end products 
+like USB cables under its in-house brand AmazonBasics.</p>
+<p>We help <em>Amazon</em> by providing reviews on many products available on Amazon today. The products reviewed by us are of both categories high end as well as low end
+.The review we make are pureply on the basis on everyones day-today usage and its a good feedback for everyone who are looking reviews on the products.These help people gaining extra knowledge about the product.
+</p>
+<p><b>We help people choose better.</b> Link to Amazon -> <a href="http://www.amazon.com">Amazon</a></p>
+  <!-- Affiliates / Pricing Tables -->
+  <div class="container" id="whatwedo" style="margin-top:75px">
+    <h1 class="xxxlarge text-red"><b>What We Do?</b></h1>
+    <hr style="width:50px;border:5px solid red;position:relative;left:-475px;" class="round">
+    <p>We are responsible for ----------------------</p><br><br><br>
+  </div>
+
+  <div class="row-padding">
+    <div class="half margin-bottom">
+      <ul class="ul light-grey center">
+        <li class="dark-grey xlarge padding-32">Blog</li>
+        <li class="padding-16">Content is regularly updated</li>
+        <li class="padding-16">Not formal</li>
+        <li class="padding-16">Interactive</li>
+        <li class="padding-16">Informative and educational</li>
+        <li class="padding-16">Interactivity about industry/customer issues</li>
+        <li class="padding-16">Some people have a blog</li>
+      </ul>
+    </div>
+        
+    <div class="half">
+      <ul class="ul light-grey center">
+        <li class="red xlarge padding-32">Website</li>
+        <li class="padding-16">Content is static</li>
+        <li class="padding-16">Formal/professional</li>
+        <li class="padding-16">One-way communication</li>
+        <li class="padding-16">Transactional</li>
+        <li class="padding-16">Communication about products and/or services</li>
+        <li class="padding-16">Requirement in business</li>
+      </ul>
+    </div>
+  </div>
+  
+ <!-- Deals -->
+  <div class="container" id="aboutus" style="margin-top:75px">
+    <h1 class="xxxlarge text-red"><b>About Us.</b></h1>
+    <hr style="width:50px;border:5px solid red;position:relative;left:-475px;" class="round">
+    <p>The best team in the world.</p>
+    <p>We are Review blog service that focus on what's best for you!</p>
+    <p>We will provide you with the best and precise information about particular products that you may wish to buy. We'll give you necessary reviews about the
+products if they are worth buying for given amount of money or not.
+<br><b>Team Recker members</b> 
+  </div>
+  <div class="row-padding grayscale">
+    <div class="col m4 margin-bottom">
+      <div class="light-grey">
+        <img src="/static/members/apurva.jpg" alt="Apurva" style="width:316px;height:321px;">
+        <div class="container">
+          <h3>Apurva Nitanjay</h3>
+          <p class="opacity">Back End</p>
+          <p>Responsible for connecting the front-end with back-end<br><br><br></p>
+        </div>
+      </div>
+    </div>
+    <div class="col m4 margin-bottom">
+      <div class="light-grey">
+        <img src="/static/members/mehul.jpg" alt="Mehul" style="width:100%">
+        <div class="container">
+          <h3>Mehul Sachdeva</h3>
+          <p class="opacity">Front End Designer</p>
+          <p>Responsible for client-side scripting.<br><br><br></p>
+        </div>
+      </div>s
+    </div>
+    <div class="col m4 margin-bottom">
+      <div class="light-grey">
+        <img src="/static/members/raghav.jpg" alt="Raghav" style="width:100%">
+        <div class="container">
+          <h3>Raghav Garg</h3>
+          <p class="opacity">Content writing and Front End Designer</p>
+          <p>Responsible for client-side scripting and content writing.</p><br>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <div class="container" id="contact" style="margin-top:75px">
+    <h1 class="xxxlarge text-red"><b>Contact.</b></h1>
+    <hr style="width:50px;border:5px solid red;position:relative;left:-475px;" class="round">
+    <p>You are free to contact us.. Just fill the form given below !</p>
+    <form action="/action_page.php" target="_blank">
+      <div class="section">
+        <label>Name</label>
+        <input class="input border" type="text" name="Name" required>
+      </div>
+      <div class="section">
+        <label>Email</label>
+        <input class="input border" type="text" name="Email" required>
+      </div>
+      <div class="section">
+        <label>Message</label>
+        <input class="input border" type="text" name="Message" required>
+      </div>
+      <button type="submit" class="button block padding-large red margin-bottom">Send Message</button>
+    </form>  
+  </div>
+
+</div>
+
+
+<!-- .CSS Container -->
+<div class="light-grey container padding-32" style="margin-top:75px;padding-right:58px"><p class="right">Powered by <a href="" title="Team Recker" target="_blank" class="hover-opacity">Team Recker</a></p></div>
+<script>
+function open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+</script>
