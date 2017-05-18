@@ -1,6 +1,6 @@
 {% extends main.html %}
 	{% block body %}
 		{% for cat in all_categories %}
-			{{cat}}
+			{% module ModuleHandler(cat['category'],cat['review'],cat['description'],cat['image_url'],cat['comment']) %}
 		{% end %}
 	{% end %}

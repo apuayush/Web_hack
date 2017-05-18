@@ -25,7 +25,7 @@ class IndexHandler(tornado.web.RequestHandler):
 
 class ModuleHandler(tornado.web.UIModule):
     def render(self, category, review, description, image_url, comment):
-        return self.render_string("module/div.html",
+        return self.render_string("Module/ui.html",
                                   category=category,
                                   review=review,
                                   description=description,
